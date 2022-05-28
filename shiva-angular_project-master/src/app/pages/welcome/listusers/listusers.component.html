@@ -1,0 +1,26 @@
+<ng-container>
+    <div>
+        <h5 >To Add a New User Click On Button</h5>
+        <button routerLink="/createuser" style="border-radius: 7px;" >Invite User</button>
+               
+    </div>
+</ng-container>
+<hr>
+
+<h6>List of all the users:----- </h6>
+<h6>First Names of users:--</h6>
+
+
+<ng-container *ngIf="arrList.length>0">
+    <div *ngFor="let user of arrList ">
+        <ul>
+            <li>
+                <hr>
+                <div class="username">{{user.first_name}} </div> | 
+                <a  class="action-link" [routerLink]="['welcome/edit', user.user_id]" >Edit</a> | 
+                <a  class="action-link" [routerLink]="['welcome/delete', user.user_id]" >Delete</a>
+                <hr>
+            </li>
+        </ul>                                   
+    </div>
+</ng-container>
